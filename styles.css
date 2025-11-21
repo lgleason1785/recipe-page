@@ -63,7 +63,8 @@ main {
     align-items: flex-start;
     padding: 40px;
     gap: 24px;
-    width: 50%;
+    width: 100%;
+    max-width: 736px;
     margin: 20px auto;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -74,8 +75,48 @@ main {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 20px;
+    border-radius: 12px;
     align-self: center;
+}
+
+/* Mobile styles (320px - 767px) */
+@media (max-width: 767px) {
+    body {
+        padding: 0;
+    }
+    
+    main {
+        padding: 0;
+    }
+    
+    .card {
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        gap: 32px;
+    }
+    
+    .card img {
+        border-radius: 0;
+    }
+    
+    .card > *:not(img) {
+        padding: 0 32px;
+    }
+    
+    .card h1 {
+        font-size: 28px;
+    }
+    
+    .card h2 {
+        font-size: 24px;
+    }
+    
+    .card table {
+        margin: 0 32px;
+        width: calc(100% - 64px);
+    }
 }
 
 .card h1 {
@@ -137,6 +178,7 @@ main {
 .card table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .card table td {
@@ -145,11 +187,27 @@ main {
     color: hsl(30, 10%, 34%);
     padding: 12px 0;
     border-bottom: 1px solid hsl(30, 18%, 87%);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.card table td:first-child {
+    width: 50%;
+    padding-right: 16px;
 }
 
 .card table td:last-child {
+    width: 50%;
     color: hsl(14, 45%, 36%);
     font-weight: 700;
+    text-align: left;
+}
+
+@media (max-width: 767px) {
+    .card table td {
+        font-size: 14px;
+        padding: 10px 0;
+    }
 }
 
 .card hr {
